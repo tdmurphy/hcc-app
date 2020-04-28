@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+HCC Prediction WebApp
+{% endblock %}
+
+{% block heading %}
+HCC Prediction WebApp
+{% endblock %}
+
+{% block content %}
+<p>
+    This is a simplistic webapp that leverages a pre-trained LSTM
+    network to identify the percentage likelihood of Hepatocelluar
+    Carcinoma <i>(HCC)</i> based on the following three bio-markers:
+</p>
+<ul style="list-style-type: circle;">
+    <li>AFP</li>
+    <li>AFP-L3</li>
+    <li>DCP</li>
+</ul>
+<p>
+    Click on the <b>HCC Prediction</b> tab to navigate to the inputs
+    you are required to fill in before you can predict HCC.
+</p>
+
+{% endblock %}
