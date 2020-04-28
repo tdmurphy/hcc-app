@@ -4,4 +4,4 @@ hcc_app = Flask(__name__)
 
 @hcc_app.route("/")
 def home():
-    return "Hello World"
+    return "Hello World, This is a continouous integration test"
