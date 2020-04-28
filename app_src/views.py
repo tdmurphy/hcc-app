@@ -16,6 +16,7 @@ def home():
 
 @hcc_app.route("/predict", methods=['GET','POST'])
 def predict():
+    #pylint: disable=no-member
     form = InputForm()
     if form.validate_on_submit():
         flash("Prediction requested for AFP: {}, AFP-L3: {}, DCP: {}".format(form.afp.data, form.afp_l3.data, form.dcp.data))

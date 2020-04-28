@@ -25,6 +25,7 @@ class LSTM(nn.Module):
         self.soft_max = nn.Softmax(dim=2)
     
     def init_hidden(self,x):
+        # pylint: disable=no-member
         return (torch.zeros((self.num_layers, x.size(0), self.hidden_size),requires_grad=True), 
                torch.zeros((self.num_layers, x.size(0), self.hidden_size),requires_grad=True))
     
