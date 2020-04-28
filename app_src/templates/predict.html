@@ -10,8 +10,47 @@ HCC Prediction
 
 {% block content %}
 <p>
-    This page will contain the user interaction to get
-    the bio-marker readings to pass into the model.
+    Please enter the readings of the respective bio-markers
+    before pressing <b>Predict</b>. The resulting likelihood
+    of HCC is then displayed below.
 </p>
+
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{form.afp.label}}<br>
+        {{form.afp(size=32)}}<br>
+        {% for error in form.afp.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.afp_l3.label}}<br>
+        {{form.afp_l3(size=32)}}<br>
+        {% for error in form.afp_l3.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.dcp.label}}<br>
+        {{form.dcp(size=32)}}<br>
+        {% for error in form.dcp.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.submit}}
+    </p>
+</form>
+{% with messages = get_flashed_messages() %}
+{% if messages%}
+<hr>
+<ul>
+    {% for message in messages %}
+    <li>{{message}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
 
 {% endblock %}
