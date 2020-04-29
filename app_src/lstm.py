@@ -34,7 +34,7 @@ class LSTM(nn.Module):
         #Init hidden state and c state
         hidden_init = self.init_hidden(x)
         
-        val, (hidden, _) = self.lstm(x, hidden_init)
+        val, (_, _) = self.lstm(x, hidden_init)
         
         out = self.dropout(val)
         out = self.linear(out)
